@@ -83,7 +83,7 @@ class Person {
   constructor (model, milesPerGallon) {
     this.model = model;
     this.milesPerGallon = milesPerGallon;
-    this.tank = 0;
+    this.tank = 0; // set this back to 0 when done experimenting
     this.odometer = 0;
   }
   // console.log("Jeep", 30)
@@ -93,18 +93,19 @@ class Person {
   }
 
   drive(distance) {
-    const range = this.tank * this.milesPerGallon;
-    if (this.tank > 0 && range < distance) {
-      this.odometer += distance;
+    const range = (this.tank * this.milesPerGallon);
+    if (distance <= range) {
+      this.odometer += (distance);
       this.tank -= (distance / this.milesPerGallon);
     } 
     else {
+      this.odometer = (this.odometer + range)
       this.tank = 0;
-      this.odometer === (this.tank * this.milesPerGallon);
       return `I ran out of fuel at ${this.odometer} miles!`;
-    }
+    } 
   }
 }
+// console.log(Jeep, 10)
   
   /*
     TASK 3
