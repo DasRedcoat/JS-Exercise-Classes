@@ -191,11 +191,11 @@ class Person {
     }
 
     PRAssignment(subject) {
-      return `${this.student} has submitted a PR for ${subject}`
+      return `${this.name} has submitted a PR for ${subject}`
     }
 
     sprintChallenge(subject) {
-      return `${this.student} has begun sprint challenge on ${subject}`
+      return `${this.name} has begun sprint challenge on ${subject}`
     }
   }
   
@@ -212,8 +212,20 @@ class Person {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
+ class ProjectManager extends Instructor {
+   constructor(attributes) {
+    super (attributes)
+    // let gradClassName = CS1;
+    this.gradClassName = attributes.gradClassName;
+    // let favInstructor = Sean;
+    this.favInstructor = attributes.favInstructor;
+   }
+   standUp(slackChannel) {
+     return `${this.name} announces to ${slackChannel} @channel standy times!`
+   }
+   debugsCode(student, subject) {
+    return `${this.name} debugs ${student.name}'s code on ${subject}`
+   }
  }
   /*
     STRETCH PROBLEM (no tests!)
